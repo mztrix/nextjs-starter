@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-foreground: var(--color-foreground);
+  --color-primary: var(--color-primary);
+  --color-danger: var(--color-danger);
+  --color-success: var(--color-success);
+
+  --font-sans: var(--font-open-sans);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  /*.border-primary {*/
+  /*  border-color: var(--color-primary);*/
+  /*}*/
+  /*.text-primary {*/
+  /*  color: var(--color-primary);*/
+  /*}*/
+}
+
+:root {
+  --color-background: var(--color-zinc-50);
+  --color-foreground: var(--color-zinc-900);
+  --color-primary: var(--color-indigo-600);
+  --color-danger: var(--color-rose-600);
+  --color-success: var(--color-emerald-500);
+}
+
+[data-theme="dark"] {
+  --color-background: var(--color-zinc-900);
+  --color-foreground: var(--color-zinc-100);
+  --color-primary: var(--color-indigo-400);
+  --color-danger: var(--color-rose-400);
+  --color-success: var(--color-emerald-400);
+}
+
+body {
+  @apply antialiased;
+  color: var(--color-foreground);
+  background: var(--color-background);
+}
